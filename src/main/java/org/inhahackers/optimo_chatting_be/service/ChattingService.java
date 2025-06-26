@@ -20,6 +20,10 @@ public class ChattingService {
         return chattingRepository.findAllByOwnerIdWithoutChatList(ownerId);
     }
 
+    public List<Chatting> findAllByOwnerId(String ownerId) {
+        return chattingRepository.findAllByOwnerId(ownerId);
+    }
+
     // ID로 단일 채팅 조회
     public Chatting findById(String chattingId, String userId) {
         Chatting chatting = chattingRepository.findById(chattingId)

@@ -1,6 +1,5 @@
 package org.inhahackers.optimo_chatting_be.function;
 
-import lombok.RequiredArgsConstructor;
 import org.inhahackers.optimo_chatting_be.exception.InvalidAuthorizationHeaderException;
 import org.inhahackers.optimo_chatting_be.exception.JwtAuthenticationException;
 import org.inhahackers.optimo_chatting_be.service.ChattingService;
@@ -15,13 +14,13 @@ import reactor.core.publisher.Mono;
 
 import java.util.function.Function;
 
-@Component("getAllChattingsFunction")
-public class GetAllChattingsFunction implements Function<ServerRequest, Mono<ServerResponse>> {
+@Component("getAllChattingsWithoutChatListFunction")
+public class GetAllChattingsWithoutChatListFunction implements Function<ServerRequest, Mono<ServerResponse>> {
 
     private final ChattingService chattingService;
     private final JwtTokenVerifyService jwtTokenVerifyService;
 
-    public GetAllChattingsFunction(ChattingService chattingService, JwtTokenVerifyService jwtTokenVerifyService) {
+    public GetAllChattingsWithoutChatListFunction(ChattingService chattingService, JwtTokenVerifyService jwtTokenVerifyService) {
         this.chattingService = chattingService;
         this.jwtTokenVerifyService = jwtTokenVerifyService;
     }
@@ -34,7 +33,7 @@ public class GetAllChattingsFunction implements Function<ServerRequest, Mono<Ser
 
             return ServerResponse.ok()
                     .contentType(MediaType.APPLICATION_JSON)
-                    .bodyValue(chattingService.findAllByOwnerId(userId.toString()));
+                    .bodyValue(chattingService.findAllByOwnerIdWithoutChatList(userId.toString()));
 
         } catch (InvalidAuthorizationHeaderException | NumberFormatException e) {
             return ServerResponse.badRequest()

@@ -22,6 +22,11 @@ public class FunctionRouterConfig {
         return route(GET("/api/chattings"), request -> {
             @SuppressWarnings("unchecked")
             Function<ServerRequest, Mono<ServerResponse>> func =
+                    (Function<ServerRequest, Mono<ServerResponse>>) catalog.lookup("getAllChattingsWithoutChatListFunction");
+            return func.apply(request);
+        }).andRoute(GET("/api/chattings/detail"), request -> {
+            @SuppressWarnings("unchecked")
+            Function<ServerRequest, Mono<ServerResponse>> func =
                     (Function<ServerRequest, Mono<ServerResponse>>) catalog.lookup("getAllChattingsFunction");
             return func.apply(request);
         }).andRoute(GET("/api/chattings/{id}"), request -> {
