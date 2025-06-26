@@ -31,5 +31,7 @@ public class Chatting {
         private String text;
         private long timestamp;
         private String model;
+        private long use_estimate;
+        private long llm_estimate;
     }
 }

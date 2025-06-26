@@ -86,13 +86,17 @@ Optimo 프로젝트의 Chatting 조회/삭 서비스 Backend Server용 레포지
 			sender: "string", // USER, AI
 			text: "string",
 			timestamp: number,
-			model: "string" // 빈 문자열 가능
+			model: "string", // 빈 문자열 가능
+			use_estimate: "number",
+			llm_estimate: "number"
 		},
 		{
 			sender: "string", // USER, AI
 			text: "string",
 			timestamp: number,
-			model: "string" // 빈 문자열 가능
+			model: "string", // 빈 문자열 가능
+			use_estimate: "number",
+			llm_estimate: "number"
 		}
 	],
 	createdAt: timestamp,
