@@ -3,7 +3,7 @@ spring:
     name: Optimo_Chatting_BE
   data:
     mongodb:
-      uri: mongodb://localhost:27017/optimo_chatting_db
+      url: mongodb+srv://optimo:qwer1234!!@optimongo.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000/chat_db
       auto-index-creation: true
 
 jwt:

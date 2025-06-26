@@ -9,7 +9,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-@Document(collection = "chattings")
+@Document(collection = "chat_db")
 public class Chatting {
 
     @Id
